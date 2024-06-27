@@ -8,10 +8,8 @@ O teste consiste nos seguintes passos:
   
   2 - Ao rodar o projeto, deve ser possivel acessar o Wordpress com as seguintes credenciais:
   
-    ```bash
       login: admin@admin.com.br
       senha: admin
-    ```
     
   3 - Adicionar o seguinte tema ao Wordpress: (https://rishidemos.com/travel-blogger/)
 
