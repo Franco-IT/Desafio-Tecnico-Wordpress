@@ -1,4 +1,4 @@
-# Desafio-Tecnico-Wordpress
+# Desafio Técnico Wordpress
 
 ### Fazer fork deste projeto e ao finalizar abrir Pull Request para este repositório.
 
