@@ -1,0 +1,44 @@
+version: '3.3'
+
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: teste
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_PASSWORD: jackson
+      MYSQL_USER: jackson
+    volumes:
+      - './mysql-data:/var/lib/mysql'
+    networks:
+      - wp_network
+    ports:
+      - '3306:3306'
+  wordpress:
+    depends_on:
+      - db
+    # build: .
+    image: wordpress:latest
+    restart: always
+    ports:
+      - '8080:80'
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: teste
+      WORDPRESS_DB_USER: jackson
+      WORDPRESS_DB_PASSWORD: admin
+      WORDPRESS_DEBUG: 'true'
+    volumes:
+      - './wordpress:/var/www/html'
+    networks:
+      - wp_network
+
+networks:
+  wp_network:
+    driver: bridge
+volumes:
+  mysql-data:
+    driver: local
+  wordpress:
+    driver: local
